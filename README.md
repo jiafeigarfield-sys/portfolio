@@ -1,6 +1,6 @@
 # Jiafei Rong (Jasmine) portfolio
 
-A static HTML and CSS portfolio for CS7026 Assignment 1. The page content and structure come from the HTML files in this folder; the visual style (fonts, colours and type sizes) follows the design at https://erupt-body-37699658.figma.site/.
+A static HTML and CSS portfolio. The page content and structure come from the HTML files in this folder. 
 
 ## Files
 

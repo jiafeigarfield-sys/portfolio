@@ -17,8 +17,8 @@ The seven HTML files and the shared CSS file were checked locally. Both reports 
 | `project3_moon-and-stars.html` | Passed | `714144e757293e22455c60290f665818b05e5a061097483cd55653e76fa93e6d` |
 | `project4_nyu-shanghai.html` | Passed | `6ff90f54bc02b83d9665fc7b5237528ca709201b1aa34a6b80dc8acf4b75eb6b` |
 | `resume.html` | Passed | `985dbbb18a2a5c346ace7761fc117963fc43dcf8a72660d791a4d6f100e38432` |
-| `contact.html` | Passed | `da3bd30dbe22acc94a2027d449a7ad66323894c3519f97f20d489aeecb282fe9` |
-| `css/style.css` | Passed | `351929dcb0fc8b21be8960152837eda3c33056c69285a0935e9770fd03a51386` |
+| `contact.html` | Passed | `e9a4a21278252cb68882831a899211667f2929a3e7c805cebc13c8d5d8743a9f` |
+| `css/style.css` | Passed | `fb9063a8e7e627a2a008dfcc1996412a88ebd7143203d0c75e57dc1d30501d9c` |
 
 The Nu checker does not check JavaScript. `js/animations.js` (SHA-256 `1a28355b293677ad9c0cb7b449dbe85993841784a8edcc824ca03d127de9059c`) was run in Chrome on all seven pages instead: it reported no errors, and the checks below were made with it running.
 

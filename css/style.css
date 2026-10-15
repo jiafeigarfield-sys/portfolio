@@ -700,10 +700,9 @@ body > .site-footer {
   text-transform: uppercase;
 }
 
-/* Each entry: dates and place (or a label) on the left, details on the right. */
+/* Each entry: dates and place on the left, details on the right. */
 .resume-entry,
-.resume-skills,
-.contact-info {
+.resume-skills {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
   gap: 16px 60px;
@@ -718,8 +717,7 @@ body > .site-footer {
 }
 
 .resume-meta,
-.resume-skills dt,
-.contact-info dt {
+.resume-skills dt {
   color: var(--purple);
   font-size: 18px;
   line-height: 1.5;
@@ -733,8 +731,7 @@ body > .site-footer {
 
 .resume-body p,
 .resume-body li,
-.resume-skills dd,
-.contact-info dd {
+.resume-skills dd {
   font-size: 20px;
   line-height: 1.5;
 }
@@ -774,14 +771,45 @@ body > .site-footer {
   font-size: 14px;
 }
 
-.resume-skills,
-.contact-info {
+.resume-skills {
   gap: 20px 60px;
 }
 
-.resume-skills dd,
+.resume-skills dd {
+  margin: 0;
+}
+
+/* Contact page: plain sections (no purple panel), each with a list centred on
+   the page's middle line. Labels sit to the left of the line, right-aligned, and
+   links to the right of it, so both lists line up with the headings and with
+   each other. */
+.contact-section {
+  padding: 50px 0;
+  border-top: 1px solid var(--line);
+  background: none;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: baseline;
+  gap: 20px 40px;
+  max-width: 720px;
+  margin: 50px auto 0;
+}
+
+.contact-info dt {
+  color: var(--purple);
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: right;
+}
+
 .contact-info dd {
   margin: 0;
+  font-size: 20px;
+  line-height: 1.5;
+  text-align: left;
 }
 
 /*
@@ -1185,15 +1213,28 @@ body > .site-footer {
   }
 
   .resume-entry,
-  .resume-skills,
-  .contact-info {
+  .resume-skills {
     grid-template-columns: 1fr;
     gap: 8px;
   }
 
-  .resume-skills dd + dt,
-  .contact-info dd + dt {
+  .resume-skills dd + dt {
     margin-top: 12px;
+  }
+
+  /* Phones are too narrow for two columns: label above link, both centred. */
+  .contact-info {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .contact-info dt,
+  .contact-info dd {
+    text-align: center;
+  }
+
+  .contact-info dd + dt {
+    margin-top: 16px;
   }
 }
 

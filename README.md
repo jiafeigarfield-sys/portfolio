@@ -60,7 +60,7 @@ Classes and patterns you can use in the HTML:
 | `article.resume-entry` with `p.resume-meta` and `div.resume-body` | One resume entry: dates and place on the left, details on the right (resume page) |
 | `p.resume-role` | Job title or degree under the organisation name, in purple (resume page) |
 | `dl.resume-skills` | Skills listed as label and value pairs (resume page) |
-| `dl.contact-info` | Contact details listed as label and link pairs (contact page) |
+| `section.contact-section` with `dl.contact-info` | Plain section with label and link pairs centred on the page (contact page) |
 
 ## Motion
 
@@ -88,7 +88,7 @@ Each page has the "Jasmine Rong" link back to the homepage, plus Home, Projects,
 
 The resume page follows the CV: contact details (email, phone and LinkedIn, one per line), profile, education, internship experience (most recent first, starting with NYU Shanghai), leadership and volunteering, and skills. Its NYU Shanghai, Changi and Air New Zealand entries have "Read it" buttons that open the matching case studies.
 
-The contact page uses the same layout as the resume page: contact details (email and the Irish and Chinese phone numbers) in the purple panel, then social media (LinkedIn, Instagram and Facebook), each as a purple label with its link beside it.
+The contact page uses the same title block and fonts as the resume page, with two plain sections: contact details (email and the Irish and Chinese phone numbers) and social media (LinkedIn, Instagram and Facebook). Each list is centred on the middle of the page, with the purple labels right-aligned to the left of the centre line and the links to the right, so both lists line up with their headings and with each other. On phones each label sits above its link.
 
 ```text
 Homepage                       index.html

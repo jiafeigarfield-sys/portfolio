@@ -657,8 +657,8 @@ body > .site-footer {
   letter-spacing: -0.03em;
 }
 
-/* Resume page: title, name and contact details. Everything on this page is
-   set in Inria Serif, with no italics. */
+/* Resume and contact pages: title, name and contact details. Everything on
+   these pages is set in Inria Serif, with no italics. */
 .resume-header h1 {
   margin-bottom: 24px;
 }
@@ -667,6 +667,11 @@ body > .site-footer {
   margin-bottom: 40px;
   font-size: var(--text-body);
   line-height: 1.2;
+}
+
+/* On the contact page the name ends the title block. */
+.resume-header > .resume-name:last-child {
+  margin-bottom: 100px;
 }
 
 /* Email, phone and LinkedIn, one per line. */
@@ -695,9 +700,10 @@ body > .site-footer {
   text-transform: uppercase;
 }
 
-/* Each entry: dates and place on the left, details on the right. */
+/* Each entry: dates and place (or a label) on the left, details on the right. */
 .resume-entry,
-.resume-skills {
+.resume-skills,
+.contact-info {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
   gap: 16px 60px;
@@ -712,7 +718,8 @@ body > .site-footer {
 }
 
 .resume-meta,
-.resume-skills dt {
+.resume-skills dt,
+.contact-info dt {
   color: var(--purple);
   font-size: 18px;
   line-height: 1.5;
@@ -726,7 +733,8 @@ body > .site-footer {
 
 .resume-body p,
 .resume-body li,
-.resume-skills dd {
+.resume-skills dd,
+.contact-info dd {
   font-size: 20px;
   line-height: 1.5;
 }
@@ -766,11 +774,13 @@ body > .site-footer {
   font-size: 14px;
 }
 
-.resume-skills {
+.resume-skills,
+.contact-info {
   gap: 20px 60px;
 }
 
-.resume-skills dd {
+.resume-skills dd,
+.contact-info dd {
   margin: 0;
 }
 
@@ -942,9 +952,13 @@ body > .site-footer {
     transform: translateY(-100%);
   }
 
-  /* The social links keep their underline while the letters roll. */
+  /* Underlined links keep their underline while the letters roll. */
   .social-links .roll-line:first-child,
-  .social-links .roll-char {
+  .social-links .roll-char,
+  .resume-contact .roll-line:first-child,
+  .resume-contact .roll-char,
+  .contact-info .roll-line:first-child,
+  .contact-info .roll-char {
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 0.2em;
@@ -1166,13 +1180,19 @@ body > .site-footer {
     margin-bottom: 50px;
   }
 
+  .resume-header > .resume-name:last-child {
+    margin-bottom: 50px;
+  }
+
   .resume-entry,
-  .resume-skills {
+  .resume-skills,
+  .contact-info {
     grid-template-columns: 1fr;
     gap: 8px;
   }
 
-  .resume-skills dd + dt {
+  .resume-skills dd + dt,
+  .contact-info dd + dt {
     margin-top: 12px;
   }
 }

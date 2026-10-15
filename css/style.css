@@ -657,6 +657,123 @@ body > .site-footer {
   letter-spacing: -0.03em;
 }
 
+/* Resume page: title, name and contact details. Everything on this page is
+   set in Inria Serif, with no italics. */
+.resume-header h1 {
+  margin-bottom: 24px;
+}
+
+.resume-header > .resume-name {
+  margin-bottom: 40px;
+  font-size: var(--text-body);
+  line-height: 1.2;
+}
+
+/* Email, phone and LinkedIn, one per line. */
+.resume-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto 100px;
+  padding: 0;
+  list-style: none;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+/* Keep phone numbers and the LinkedIn address on one line. */
+.resume-contact a {
+  white-space: nowrap;
+}
+
+.resume-contact li > span {
+  margin-right: 8px;
+  color: var(--purple);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Each entry: dates and place on the left, details on the right. */
+.resume-entry,
+.resume-skills {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 16px 60px;
+  max-width: 1000px;
+  margin: 50px auto 0;
+  text-align: left;
+}
+
+.resume-entry + .resume-entry {
+  padding-top: 50px;
+  border-top: 1px solid var(--line);
+}
+
+.resume-meta,
+.resume-skills dt {
+  color: var(--purple);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.resume-body h3 {
+  font-size: var(--text-body);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.resume-body p,
+.resume-body li,
+.resume-skills dd {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.resume-body p {
+  margin-top: 12px;
+}
+
+.resume-body .resume-role {
+  margin-top: 8px;
+  color: var(--purple);
+}
+
+.resume-body h4 {
+  margin-top: 36px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.resume-body ul {
+  margin: 12px 0 0;
+  padding-left: 1.2em;
+}
+
+.resume-body li + li {
+  margin-top: 8px;
+}
+
+.resume-body li::marker {
+  color: var(--purple);
+}
+
+.resume-body .read-link {
+  margin-top: 20px;
+  font-family: var(--serif);
+  font-size: 14px;
+}
+
+.resume-skills {
+  gap: 20px 60px;
+}
+
+.resume-skills dd {
+  margin: 0;
+}
+
 /*
   Motion, inspired by landonorris.com.
   Page-load effects are pure CSS; js/animations.js adds the text roll on links,
@@ -781,6 +898,10 @@ body > .site-footer {
 
   .case-header > p {
     animation: fade-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+  }
+
+  .resume-contact {
+    animation: fade-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
   }
 
   /* Text roll on links: the text slides up and a copy rolls in from below,
@@ -1035,6 +1156,24 @@ body > .site-footer {
 
   .changepage h4 {
     margin: 24px 0;
+  }
+
+  .resume-header h1 {
+    margin-bottom: 24px;
+  }
+
+  .resume-contact {
+    margin-bottom: 50px;
+  }
+
+  .resume-entry,
+  .resume-skills {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .resume-skills dd + dt {
+    margin-top: 12px;
   }
 }
 

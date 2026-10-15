@@ -20,7 +20,7 @@
      in one after another on hover. Both lines are decorative copies, so the
      real text is kept in a visually hidden span for screen readers. */
   var rollLinks = document.querySelectorAll(
-    ".site-nav a, .read-link, .button-previous, .button-next, .contact-details a, .social-links a"
+    ".site-nav a, .read-link, .button-previous, .button-next, .contact-details a, .social-links a, .resume-contact a"
   );
 
   rollLinks.forEach(function (link) {
@@ -83,6 +83,7 @@
     prepare(".project-list ul > li", "reveal");
     prepare(".case-header ~ section", "reveal");
     prepare(".showcase-card", "reveal");
+    prepare(".resume-entry", "reveal");
     prepare(".changepage > article", "reveal", 2);
     prepare(".footer-inner > *", "reveal", 2);
     prepare(

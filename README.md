@@ -11,10 +11,12 @@ portfolio/
   project2_air-new-zealand.html
   project3_moon-and-stars.html
   project4_nyu-shanghai.html
+  project5_mood-boost.html
   resume.html
   contact.html
   css/
     style.css
+    home.css       homepage layout only
   js/
     animations.js
   media/
@@ -28,7 +30,7 @@ portfolio/
   README.md
 ```
 
-All seven pages link to `css/style.css` and `js/animations.js`. The website has no inline styles, build step, libraries or package dependencies. Images and fonts are included locally.
+All eight pages link to `css/style.css` and `js/animations.js`. The homepage also loads `css/home.css`, which holds its own layout (hero, featured project card, logo tiles); its rules are scoped to `body.home`. The sticky header and the dark contact footer are shared by all eight pages and live in `css/style.css`. The website has no build step, libraries or package dependencies, and images and fonts are included locally. The one exception is the Mood Boost page, which loads the Inter font from Google Fonts and uses inline `style` attributes for its colour swatches and type-weight samples.
 
 ## Open and edit
 
@@ -40,7 +42,7 @@ Image paths that contain a space are written with `%20`, for example `media/proj
 
 `css/style.css` is organised in this order: fonts, colour and size variables, header, homepage, footer, the project pages, the resume page, motion, then the rules for smaller screens.
 
-- **Fonts:** Inria Serif (regular and bold) for text, Square Peg for the handwritten name and the "Jasmine Rong" link, and Sometype Mono (regular and italic) for dates, buttons and the footer. The content of the resume page uses Inria Serif throughout, with no italics.
+- **Fonts:** Inria Serif (regular and bold) for project and resume text, the system sans-serif (San Francisco / Segoe UI) for the header, footer and homepage, Square Peg for the handwritten "(Jasmine)", and Sometype Mono (regular and italic) for dates, labels and buttons. The content of the resume page uses Inria Serif throughout, with no italics.
 - **Colours:** text `#171717`, purple `#7a35b0`, grey buttons `#cecece` and dividers `#d9d9d9`. The first section of each project page sits in a light purple panel.
 - **Type sizes:** set with `clamp()`, so they match the Figma sizes at 1440px wide and shrink on smaller screens. Layouts stack into a single column below 960px and 600px.
 
@@ -78,13 +80,13 @@ The animations take their cue from https://landonorris.com/. They only move thin
 | Menu, buttons and contact links | On hover, the text slides up and a copy rolls in letter by letter | CSS and JavaScript |
 | Software logos | Hop and tilt on hover | CSS |
 | Project images | Lift slightly on hover | CSS |
-| Footer | Fades in as you reach it; when a page is opened at `#contact`, a purple line runs along its top edge and the details reappear one by one | CSS |
+| Footer | The Contact label and email fade up as you reach them | CSS and JavaScript |
 
 The CSS is in the "Motion" part of `css/style.css`, and `js/animations.js` adds the extra elements and classes it needs. If JavaScript is turned off, every page still shows all of its content. Visitors whose system is set to reduce motion see the site without any of these animations, and printed pages always show everything.
 
 ## Navigation
 
-Each page has the "Jasmine Rong" link back to the homepage, plus Home, Projects, Resume and Contact in the menu. Contact opens the contact page; every page also keeps the contact details in its footer. The homepage links to all four project pages through their "Read it" buttons. Each project page has Previous and Next links at the bottom.
+Each page has the "Jasmine Rong" link back to the homepage, plus Home, Projects, Resume and Contact in the menu. Contact opens the contact page; every page also keeps the contact details in its footer. The homepage links to all five project pages through their project cards. Each project page has Previous and Next links at the bottom.
 
 The resume page follows the CV: contact details (email, phone and LinkedIn, one per line), profile, education, internship experience (most recent first, starting with NYU Shanghai), leadership and volunteering, and skills. Its NYU Shanghai, Changi and Air New Zealand entries have "Read it" buttons that open the matching case studies.
 
@@ -96,6 +98,7 @@ Homepage                       index.html
   Air New Zealand              project2_air-new-zealand.html
   Moon and stars               project3_moon-and-stars.html
   NYU Shanghai                 project4_nyu-shanghai.html
+  Mood Boost                   project5_mood-boost.html
 Resume                         resume.html
 Contact                        contact.html
 
@@ -107,12 +110,12 @@ Changi -> Air New Zealand -> Moon and stars -> NYU Shanghai -> Changi
 
 This implementation provides the website deliverables: a homepage plus six other pages (four case studies, a resume and a contact page), working navigation, images, text, links and a single external stylesheet.
 
-`VALIDATION.md` records the latest check with the official Nu Html Checker (15 October 2026): all seven pages and `css/style.css` passed with zero messages. If you edit a page or the stylesheet after that, check it again (https://validator.w3.org/nu/) and update its row in `VALIDATION.md`.
+`VALIDATION.md` records the latest check with the official Nu Html Checker (6 November 2026): all eight pages, `css/style.css` and `css/home.css` passed with zero messages. If you edit a page or the stylesheet after that, check it again (https://validator.w3.org/nu/) and update its row in `VALIDATION.md`.
 
 To submit the assignment:
 
 1. Copy the contents of this folder into the course `www` folder, retaining the `css`, `js` and `media` subfolders.
-2. Check the actual published homepage URL, all four project links, the resume link and the contact link after uploading. The homepage is `index.html`, so servers and GitHub Pages open it automatically at the folder address.
+2. Check the actual published homepage URL, all five project links, the resume link and the contact link after uploading. The homepage is `index.html`, so servers and GitHub Pages open it automatically at the folder address.
 3. Create the assignment GitHub repository, add these project files and commit the work.
 4. Update the PDF documentation with the published coursework homepage URL and GitHub repository URL. Its navigation description and wireframes should reflect this HTML version, including the Previous and Next links on the project pages.
 5. Submit the named PDF through Blackboard according to the course brief.

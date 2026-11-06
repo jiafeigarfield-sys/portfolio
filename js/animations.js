@@ -20,7 +20,7 @@
      in one after another on hover. Both lines are decorative copies, so the
      real text is kept in a visually hidden span for screen readers. */
   var rollLinks = document.querySelectorAll(
-    ".site-nav a, .read-link, .button-previous, .button-next, .contact-details a, .social-links a, .resume-contact a, .contact-info a"
+    ".site-nav a, .read-link, .button-previous, .button-next, .resume-contact a, .contact-info a, .home .btn, .footer-email, .footer-social a"
   );
 
   rollLinks.forEach(function (link) {
@@ -85,7 +85,14 @@
     prepare(".showcase-card", "reveal");
     prepare(".resume-entry", "reveal");
     prepare(".changepage > article", "reveal", 2);
-    prepare(".footer-inner > *", "reveal", 2);
+    /* The last footer row sits at the very end of the page, where the
+       observer can't see it, so only the email block is revealed. */
+    prepare(".site-footer .eyebrow, .footer-address", "reveal");
+    /* Homepage (css/home.css). */
+    prepare(".section-head", "reveal");
+    prepare(".work-item", "reveal", 2);
+    prepare(".tool-list li", "reveal", 8);
+    prepare(".work-media", "wipe");
     prepare(
       ".project-card > img, .case-header ~ section > img, .row img, .showcase-card > img, .changepage img",
       "wipe"

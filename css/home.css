@@ -1,0 +1,517 @@
+/*
+  Homepage layout (index.html only).
+  Loaded after style.css and scoped to body.home, so the project, resume and
+  contact pages are not affected. The colour tokens, the header, the footer,
+  .wrap and .eyebrow are shared and live in style.css, as do the keyframes
+  (fade-up, wipe-up).
+*/
+
+.home {
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Pill buttons in the hero. */
+.home .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 52px;
+  padding: 0 26px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.home .btn::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background: currentColor;
+  -webkit-mask: var(--icon-arrow) center / contain no-repeat;
+  mask: var(--icon-arrow) center / contain no-repeat;
+}
+
+.home .btn-dark {
+  background: var(--ink);
+  color: #fff;
+}
+
+.home .btn-dark::after {
+  -webkit-mask-image: var(--icon-arrow-down);
+  mask-image: var(--icon-arrow-down);
+}
+
+.home .btn-dark:hover {
+  border-color: var(--purple);
+  background: var(--purple);
+  color: #fff;
+}
+
+.home .btn-ghost {
+  background: transparent;
+  color: var(--ink);
+}
+
+.home .btn-ghost:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* Hero: name and one-line pitch on the left, portrait on the right. */
+.home .hero-home {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: end;
+  gap: clamp(32px, 5vw, 80px);
+  padding-top: clamp(40px, 5vw, 72px);
+  padding-bottom: clamp(40px, 4.5vw, 64px);
+}
+
+.home .hero-name {
+  margin-top: 28px;
+  font-size: clamp(60px, 9.6vw, 140px);
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+}
+
+.home .hero-alias {
+  color: var(--purple);
+  font-family: "Square Peg", "Brush Script MT", cursive;
+  font-size: 0.5em;
+  font-weight: 400;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.home .hero-lead {
+  max-width: 34ch;
+  margin-top: 32px;
+  color: var(--muted);
+  font-size: clamp(17px, 1.45vw, 21px);
+  line-height: 1.5;
+}
+
+.home .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.home .hero-portrait {
+  overflow: hidden;
+  min-height: 420px;
+  max-height: min(680px, calc(100vh - 200px));
+  margin: 0;
+  border-radius: 24px;
+  background: var(--surface);
+  aspect-ratio: 4 / 5;
+}
+
+.home .hero-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% 50%;
+}
+
+/* Three disciplines in a thin ruled strip. */
+.home .disciplines {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  list-style: none;
+}
+
+.home .disciplines li {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 22px 24px;
+  font-size: clamp(16px, 1.4vw, 20px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.home .disciplines li:first-child {
+  padding-left: 0;
+}
+
+.home .disciplines li + li {
+  border-left: 1px solid var(--hairline);
+}
+
+.home .disciplines span {
+  color: var(--purple);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* Section heading with a count on the right. */
+.home .home-section {
+  padding-top: clamp(80px, 10vw, 140px);
+}
+
+.home .section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: clamp(28px, 3.5vw, 48px);
+}
+
+.home .section-head h2 {
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.home .section-count {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 14px;
+}
+
+/* Projects: one featured card, then a two-column grid. */
+.home .work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(40px, 5vw, 64px) clamp(20px, 2.5vw, 32px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home .work-item--featured {
+  grid-column: 1 / -1;
+}
+
+.home .work-card {
+  position: relative;
+  display: block;
+  border-radius: 20px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.home .work-card:hover {
+  color: var(--ink);
+}
+
+.home .work-card:focus-visible {
+  border-radius: 20px;
+  outline-offset: 6px;
+}
+
+.home .work-media {
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--surface);
+  aspect-ratio: 16 / 9;
+}
+
+.home .work-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home .work-meta {
+  display: grid;
+  grid-template-areas:
+    "text arrow"
+    "date arrow";
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 10px 24px;
+  padding-top: 20px;
+}
+
+.home .work-text {
+  grid-area: text;
+}
+
+.home .work-text h3 {
+  font-size: clamp(20px, 1.8vw, 26px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.home .work-text p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.home .work-date {
+  grid-area: date;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.home .work-arrow {
+  grid-area: arrow;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--hairline);
+  border-radius: 50%;
+  color: var(--ink);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.45s var(--ease);
+}
+
+.home .work-arrow::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background: currentColor;
+  -webkit-mask: var(--icon-arrow) center / contain no-repeat;
+  mask: var(--icon-arrow) center / contain no-repeat;
+}
+
+.home .work-card:hover .work-arrow,
+.home .work-card:focus-visible .work-arrow {
+  border-color: var(--purple);
+  background: var(--purple);
+  color: #fff;
+}
+
+/* The featured project: image left, details in a panel on the right. */
+.home .work-item--featured .work-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--surface);
+}
+
+.home .work-item--featured .work-media {
+  border-radius: 0;
+}
+
+.home .work-item--featured .work-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  padding: clamp(24px, 3vw, 44px);
+}
+
+.home .work-item--featured .work-text {
+  margin-top: auto;
+  padding-top: 32px;
+}
+
+.home .work-item--featured .work-text h3 {
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.home .work-item--featured .work-text p {
+  max-width: 30ch;
+  margin-top: 14px;
+  font-size: 17px;
+}
+
+.home .work-item--featured .work-arrow {
+  width: 56px;
+  height: 56px;
+  margin-top: 28px;
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+
+/* Software: compact logo tiles. */
+.home .tool-list {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 28px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home .tool-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.home .tool-icon {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  border-radius: 20px;
+  background: var(--surface);
+  aspect-ratio: 1;
+  transition: background-color 0.3s ease, transform 0.45s var(--ease);
+}
+
+/* Multiply drops the white backgrounds some logo files have. */
+.home .tool-icon img {
+  width: 46%;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+/* Wordmark logos sit in wide canvases, so they need more room. */
+.home .tool-icon--wide img {
+  width: 82%;
+}
+
+.home .tool-icon--md img {
+  width: 62%;
+}
+
+.home .tool-list li:hover .tool-icon {
+  background: var(--purple-soft);
+}
+
+/* Motion: page-load entrance and hover movement. */
+@media (prefers-reduced-motion: no-preference) {
+  .home .hero-copy > * {
+    animation: fade-up 1s var(--ease) both;
+  }
+
+  .home .hero-copy > :nth-child(1) { animation-delay: 0.1s; }
+  .home .hero-copy > :nth-child(2) { animation-delay: 0.2s; }
+  .home .hero-copy > :nth-child(3) { animation-delay: 0.32s; }
+  .home .hero-copy > :nth-child(4) { animation-delay: 0.44s; }
+
+  .home .hero-portrait img {
+    animation: wipe-up 1.3s cubic-bezier(0.76, 0, 0.24, 1) 0.15s both;
+  }
+
+  .home .disciplines li {
+    animation: fade-up 0.9s var(--ease) both;
+  }
+
+  .home .disciplines li:nth-child(1) { animation-delay: 0.55s; }
+  .home .disciplines li:nth-child(2) { animation-delay: 0.62s; }
+  .home .disciplines li:nth-child(3) { animation-delay: 0.69s; }
+
+  .home .work-media img {
+    transition: transform 0.9s var(--ease);
+  }
+
+  .home .work-card:hover .work-media img {
+    transform: scale(1.035);
+  }
+
+  .home .work-card:hover .work-arrow {
+    transform: rotate(45deg);
+  }
+
+  .home .tool-list li:hover .tool-icon {
+    transform: translateY(-4px);
+  }
+}
+
+/* Tablets: hero and featured card stack. */
+@media (max-width: 960px) {
+  .home .hero-home {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .home .hero-portrait {
+    min-height: 0;
+    max-height: none;
+    aspect-ratio: 4 / 3;
+  }
+
+  .home .work-item--featured .work-card {
+    grid-template-columns: 1fr;
+  }
+
+  .home .work-item--featured .work-text {
+    padding-top: 20px;
+  }
+
+  .home .tool-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Phones: one column. */
+@media (max-width: 640px) {
+  .home .hero-name {
+    margin-top: 20px;
+  }
+
+  .home .hero-lead {
+    margin-top: 24px;
+  }
+
+  .home .hero-actions {
+    margin-top: 28px;
+  }
+
+  .home .btn {
+    height: 48px;
+    padding: 0 22px;
+  }
+
+  .home .disciplines li {
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px 12px;
+    font-size: 15px;
+  }
+
+  .home .work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home .work-arrow {
+    width: 42px;
+    height: 42px;
+  }
+
+  .home .work-item--featured .work-arrow {
+    width: 48px;
+    height: 48px;
+  }
+
+  .home .tool-list {
+    gap: 20px 12px;
+  }
+
+  .home .tool-list li {
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .home .tool-icon {
+    border-radius: 16px;
+  }
+}
